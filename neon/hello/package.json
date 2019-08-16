@@ -1,0 +1,15 @@
+{
+  "name": "hello",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/index.js",
+  "author": "Sebastián Petrík <sebohacker@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.7.2",
+    "neon-cli": "^0.2.0"
+  },
+  "scripts": {
+    "install": "neon build"
+  }
+}
