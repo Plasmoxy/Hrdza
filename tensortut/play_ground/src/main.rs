@@ -35,4 +35,16 @@ fn main() {
     // unit value
     // let t = (); // empty tuple is like None type
 
+    // ownership
+    // piece of data can only have one owner at a time
+    let ow_s = String::from("Ownership");
+    let ow_y = ow_s;
+    // println!("{}", ow_s); // nope! -> ow_s is no longer the owner
+    // it has been moved!
+    // note: primitive types are not moved but copied
+    println!("{}", ow_y);
+
+    // borrowing
+    let ow_b = &ow_y; // borrow it
+    println!("{}", ow_b);
 }
