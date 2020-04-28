@@ -1,4 +1,5 @@
 use std::mem;
+use std::fmt;
 
 fn main() {
     println!("Hello, nibba.");
@@ -17,7 +18,6 @@ fn main() {
         println!("a = {:?}", a); // debug fmt
         println!("size in mem: {}", mem::size_of_val(&a));
 
-        
         // reference to part of array
         let a_sliced = &a[2..5];
         println!("sliced a: {:?}", a_sliced);
@@ -54,5 +54,51 @@ fn main() {
         println!("borrowed: {}", ow_b);
     }
     
+    {
+        #[derive(Debug)]
+        struct Object {
+            width: u64,
+            height: u64,
+        }
+        
+        // impl creates a namespace
+        impl Object {
+            // const in namespace
+            const FOUR: u64 = 4;
+            
+            // method
+            fn area(&self) -> u64 {
+                self.width * self.height
+            }
+            
+            // doesnt have &self, therefore its static method
+            // Object is also a namespace!
+            fn new(width: u64, height: u64) -> Object {
+                Object { width, height }
+            }
+        }
+        
+        impl Object {
+            const NOVA_PREMENNA_XD: u64 = 69;
+        }
+        
+        impl fmt::Display for Object {
+            fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+                write!(f, "obj {} x {}", self.width, self.height)
+            }
+        }
     
+        let o = Object {
+            width: 64,
+            height: 64,
+        };
+        
+        println!("area: {}", o.area());
+        println!("area 2: {}", Object::new(32, 33).area());
+        
+        println!("FOUR {}", Object::FOUR);
+        
+        println!("debug obj: {:#?}", o); // debug
+        println!("display obj: {}", o); // display
+    }
 }
