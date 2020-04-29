@@ -3,7 +3,7 @@ use piston_window::types::Color;
 use piston_window::{Context, G2d};
 use std::collections::LinkedList;
 
-const SNAKE_COLOR: Color = [0.0, 0.8, 0.0, 1.0];
+const SNAKE_COLOR: Color = [0.0, 1.0, 0.862, 1.0];
 
 // is partialeq derive required ?
 // Copy -> Direction has now copy semantics
