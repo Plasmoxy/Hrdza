@@ -10,7 +10,7 @@ const BORDER_COLOR: Color   = [0.0, 0.0, 0.0, 1.0];
 const GAMEOVER_COLOR: Color = [0.9, 0.0, 0.0, 0.5];
 
 const MOVING_PERIOD: f64 = 0.1;
-const RESTART_TIME: f64 = 5.0;
+const RESTART_TIME: f64 = 1.0;
 
 pub struct Game {
   snake: Snake,

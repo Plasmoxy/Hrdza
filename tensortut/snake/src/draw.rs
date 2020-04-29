@@ -42,8 +42,3 @@ pub fn draw_rectangle(
     g,
   );
 }
-
-pub fn hello_draw_module() {
-  println!("Hello draw module!");
-}
-
