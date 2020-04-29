@@ -16,7 +16,7 @@ fn main() {
     let win_bounds = [to_coord(width) as u32, to_coord(height) as u32];
 
     let mut window: PistonWindow =
-        WindowSettings::new("Had", win_bounds)
+        WindowSettings::new("HYBAJUCI-ŠE KOKOT", win_bounds)
             .exit_on_esc(true)
             .build()
             .unwrap();
