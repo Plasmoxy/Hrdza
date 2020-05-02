@@ -1,3 +1,5 @@
+use std::io::Read;
+
 pub const BLOCK_SIZE: usize = 30000;
 
 #[derive(PartialEq)]
@@ -71,6 +73,11 @@ impl BrainfuckEngine {
           "{}",
           std::char::from_u32(self.block[self.bp] as u32).unwrap_or('$')
         ),
+        
+        ',' => {
+          let chr = std::io::stdin().bytes().next().unwrap().unwrap();
+          self.block[self.bp] = chr as i32;
+        },
 
         // custom macros / extensions (ignored by normal bf)
         '#' => self.display_block(0, 10),
