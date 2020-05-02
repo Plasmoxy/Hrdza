@@ -17,6 +17,7 @@ pub struct BrainfuckEngine {
 }
 
 impl BrainfuckEngine {
+  /// Initialize brainfuck engine.
   pub fn new() -> BrainfuckEngine {
     BrainfuckEngine {
       block: [0; BLOCK_SIZE],
@@ -24,6 +25,32 @@ impl BrainfuckEngine {
       bp: 0,
       loops: [0; 255],
       lp: 0,
+    }
+  }
+  
+  /// Execute source string.
+  pub fn execute(&self, source: &str) {
+    let mut line_idx: u64 = 0; // track line index
+    
+    for line in source.lines() {
+      
+      // First, parse utility macros and functions
+      // -> Should be able to expand them into normal bf later.
+      // -> Shouldn't produce any errors !!!
+      // # 0 10 -> display block from 0 to 10
+      if line.starts_with("# ") {
+        let args_str: &str = &line[2..];
+        let args: Vec<&str> = args_str.split(" ").collect();
+        if (args.len() == 2) {
+          let from: usize = (args.get(0).unwrap()).parse().unwrap();
+          let to: usize = (args.get(1).unwrap()).parse().unwrap();
+          self.display_block(from, to);
+        }
+      }
+      
+      
+      
+      line_idx += 1;
     }
   }
   
