@@ -31,54 +31,7 @@ fn main() {
     let mut current_entry = EntryType::None;
     let mut entry_str = String::new();
     
-    while ip < s_len {
-        let instruction = chars.get(ip).unwrap();
-        
-        // execute instructions
-        match instruction {
-            // basic Brainfuck instruction set
-            
-            '>' => bp += 1,
-            '<' => bp -= 1,
-            '+' => block[bp] += 1,
-            '-' => block[bp] -= 1,
-            
-            '[' => {
-                loops[lp] = ip;
-                lp += 1;
-            },
-            
-            ']' => {
-                if lp == 0 {
-                    println!("Error: tried to close loop while not inside any.");
-                    return;
-                }
-                if block[bp] != 0 {
-                    ip = loops[lp - 1];
-                } else {
-                    lp -= 1;
-                }
-            },
-            
-            '.' => {
-                print!("{}", std::char::from_u32(block[bp] as u32).unwrap_or('$'))
-            },
-            
-            // custom macros / extensions (ignored by normal bf)
-            '#' => display_block(&block, 0, 10, bp),
-            
-            // enter number-entering mode, mode is exited when normal brainfuck instruction is reached
-            // '_' => { current_entry = EntryType::Number; },
-            
-            // non instruction characters
-            x => {
-                if current_entry != EntryType::None {
-                    entry_str.push(*x);
-                }
-            },
-        }
-        
-        ip += 1;
+    
     }
 }
 
