@@ -20,6 +20,6 @@ fn main() {
       }
   };
   
-  let eng = BrainfuckEngine::new();
+  let mut eng = BrainfuckEngine::new();
   eng.execute(&source);
 }
