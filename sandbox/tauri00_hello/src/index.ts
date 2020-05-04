@@ -1,5 +1,6 @@
-const $ = document.querySelector
 
-$("#hello").addEventListener("click", (e) => {
-  console.log("xd")
-})
+const button = document.getElementById("hello")
+
+button.onclick = (ev) => {
+  console.log("xdxd")
+}
