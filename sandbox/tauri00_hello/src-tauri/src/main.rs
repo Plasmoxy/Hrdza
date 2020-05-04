@@ -8,11 +8,14 @@ mod cmd;
 fn main() {
   println!("MAIN");
   
-  tauri::event::listen(String::from("test"), move |msg| {
-    println!("got js-event with message '{:?}'", msg);
-});
+  
   
   tauri::AppBuilder::new()
+    .setup(|webview, _source| {
+      tauri::event::listen(String::from("test"), move |msg| {
+        println!("got js-event with message '{:?}'", msg);
+      });
+    })
     .invoke_handler(|_webview, arg| {
       println!("COMAND REC");
       use cmd::Cmd::*;
