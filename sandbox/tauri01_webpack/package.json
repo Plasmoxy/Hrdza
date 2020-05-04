@@ -13,9 +13,9 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
-    "react-app-rewired": "^2.1.6"
+    "react-app-rewired": "^2.1.6",
+    "tauri": "^0.5.2"
   }
 }

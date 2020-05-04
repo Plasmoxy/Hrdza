@@ -7,6 +7,11 @@ mod cmd;
 
 fn main() {
   tauri::AppBuilder::new()
+    .setup(|webview, _source| {
+      tauri::event::listen(String::from("test"), move |msg| {
+        println!("got js-event with message '{:?}'", msg);
+      });
+    })
     .invoke_handler(|_webview, arg| {
       use cmd::Cmd::*;
       match serde_json::from_str(arg) {
