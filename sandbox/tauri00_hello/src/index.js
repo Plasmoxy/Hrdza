@@ -1,6 +1,7 @@
 
 const button = document.getElementById("hello")
+let t = 0;
 
 button.onclick = (ev) => {
-  console.log("xdxd")
+  button.innerHTML = String(t++);
 }
