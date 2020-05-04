@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "tauri": "^0.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
   }
 }
