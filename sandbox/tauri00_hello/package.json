@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "regenerator-runtime": "^0.13.5",
     "tauri": "^0.5.2"
   },
   "devDependencies": {
