@@ -1,5 +1,8 @@
 'use strict';
 
+const merge = require('webpack-merge')
+const tauriCfg = require('@tauri-apps/tauri-webpack').config()
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -128,7 +131,7 @@ module.exports = function(webpackEnv) {
     return loaders;
   };
 
-  return {
+  const cfg =  {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
@@ -666,4 +669,6 @@ module.exports = function(webpackEnv) {
     // our own hints via the FileSizeReporter
     performance: false,
   };
+  
+  return merge(cfg, tauriCfg);
 };
